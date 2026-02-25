@@ -1,9 +1,11 @@
 from storage import Storage
 from task import Task
 
+
 class TaskManager:
-    def __init__(self):
-        self.tasks = Storage.load_tasks()
+    def __init__(self, user):
+        self.user = user
+        self.tasks = Storage.load_tasks(user.username)
 
     def add_task(self):
         description = input("Enter task: ")
@@ -15,9 +17,9 @@ class TaskManager:
             print("No tasks available.")
             return
 
+        print("\nYour Tasks:")
         for i, task in enumerate(self.tasks, start=1):
-            status = "Tick" if task.done else "Cross"
-            print(f"{i}. {task.description} [{status}]")
+            print(task.display(i))
 
     def mark_done(self):
         self.view_tasks()
@@ -38,4 +40,4 @@ class TaskManager:
             print("Invalid choice.")
 
     def save(self):
-        Storage.save_tasks(self.tasks)
+        Storage.save_tasks(self.user.username, self.tasks)
