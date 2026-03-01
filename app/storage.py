@@ -1,4 +1,4 @@
-from task import Task
+from app.task import Task
 
 
 class Storage:
