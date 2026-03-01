@@ -1,5 +1,5 @@
-from storage import Storage
-from task import Task
+from app.storage import Storage
+from app.task import Task
 
 
 class TaskManager:
