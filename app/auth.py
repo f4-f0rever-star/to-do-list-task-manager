@@ -1,7 +1,7 @@
 import re
 import os
 import getpass
-from user import User
+from app.user import User
 
 
 USER_FILE = "users.txt"
