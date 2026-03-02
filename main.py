@@ -1,5 +1,5 @@
 from app.auth import Auth
-from task_manager import TaskManager
+from app.task_manager import TaskManager
 
 
 def authenticate():
