@@ -10,6 +10,7 @@ class TaskManager:
     def add_task(self):
         description = input("Enter task: ")
         self.tasks.append(Task(description))
+        self.save()
         print("Task added!")
 
     def view_tasks(self):
@@ -26,6 +27,7 @@ class TaskManager:
         try:
             num = int(input("Task number to mark done: "))
             self.tasks[num - 1].mark_done()
+            self.save()
             print("Task completed!")
         except:
             print("Invalid choice.")
@@ -35,6 +37,7 @@ class TaskManager:
         try:
             num = int(input("Task number to delete: "))
             self.tasks.pop(num - 1)
+            self.save()
             print("Task deleted!")
         except:
             print("Invalid choice.")
